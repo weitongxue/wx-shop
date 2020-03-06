@@ -1,0 +1,11 @@
+<!--component/swiper/weiper.wxml-->
+<view class="swiper-content">
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imageList}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.image}}" alt="{{item.title}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
