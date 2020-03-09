@@ -1,7 +1,6 @@
-//index.js
-//获取应用实例
+// index.js
+// 获取应用实例
 const app = getApp()
-
 Page({
   data: {
     motto: 'Hello World',
@@ -9,8 +8,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
+  // 事件处理函数
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -43,7 +42,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
