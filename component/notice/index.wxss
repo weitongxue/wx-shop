@@ -1,0 +1,11 @@
+/* component/notice/index.wxss */
+.swiper-content {
+  display: flex;
+}
+.swiper-content, .notice-item {
+  height: 100%;
+  width: 100%;
+}
+.notice-icon {
+  width: 60rpx;
+}

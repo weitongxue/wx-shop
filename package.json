@@ -17,13 +17,23 @@
   },
   "homepage": "https://github.com/weitongxue/wx-shop#readme",
   "standard": {
-    "globals": ["Page"],
-    "ignore": [
-        "node_modules/**",
-        "pages/**"
+    "globals": [
+      "Page"
     ],
-    "plugins": ["html"],
+    "ignore": [
+      "node_modules/**",
+      "pages/**"
+    ],
+    "plugins": [
+      "html"
+    ],
     "parser": "babel-eslint",
-    "envs": ["jest"]
+    "envs": [
+      "jest"
+    ]
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "crypto-js": "^4.0.0"
   }
 }

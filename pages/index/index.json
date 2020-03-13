@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "mSwiper": "../../component/swiper/swiper"
+    "mSwiper": "../../component/swiper",
+    "mNav": "../../component/nav",
+    "mNotice": "../../component/notice",
+    "mProduct": "../../component/productList"
   }
 }

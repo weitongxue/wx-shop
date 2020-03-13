@@ -1,0 +1,7 @@
+<!--component/nav/index.wxml-->
+<view class="nav">
+  <navigator class="nav-item" wx:for="{{navList}}" wx:key="index" url="/page/cart/cart">
+    <image class="nav-icon" src="{{item.image}}" alt="{{item.title}}"></image>
+    <text>{{item.title}}</text>
+  </navigator>
+</view>

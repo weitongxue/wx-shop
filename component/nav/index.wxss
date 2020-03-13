@@ -1,0 +1,18 @@
+/* component/nav/index.wxss */
+.nav {
+  display: grid;
+  grid-template-columns: 20% auto auto 20%;
+  border-bottom: 1px solid #ECECEC;
+}
+.nav-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.nav-icon {
+  width: 74rpx;
+  height: 74rpx;
+  margin-bottom: 6rpx;
+}

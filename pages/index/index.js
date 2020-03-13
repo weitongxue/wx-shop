@@ -4,7 +4,10 @@ const app = getApp()
 Page({
   data: {
     imageList: [],
-    navList: []
+    navList: [],
+    noticeList: [],
+    noticeIcon: '',
+    productList: []
   },
   onReady: function () {
     const pageInfo = app.globalData.pageInfo || []
@@ -20,6 +23,12 @@ Page({
       },
       'navigation': () => {
         this.setData({ navList: item.list })
+      },
+      "notice": () => {
+        this.setData({ noticeList: item.list, noticeIcon: item.image })
+      },
+      "product": () => {
+        this.setData({ productList: item.list })
       }
     }
     info[item.areaCode] ? info[item.areaCode]() : false

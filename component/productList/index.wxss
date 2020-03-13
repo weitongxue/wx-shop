@@ -1,0 +1,8 @@
+/* component/productList/index.wxss */
+.tab {
+  height: 90rpx;
+  display: flex;
+}
+.tab-item {
+  flex: 1;
+}

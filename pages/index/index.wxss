@@ -20,22 +20,14 @@
   background-image: linear-gradient(0deg, #FFFFFF 1%, #D96B6B 27%, #802408 98%);
 }
 .nav-wrap {
-  padding: 20rpx 30rpx;
+  padding: 20rpx 30rpx 0rpx;
 }
-.nav {
-  display: grid;
-  grid-template-columns: 20% auto auto 20%;
-  border-bottom: 1px solid #ECECEC;
+.notice-wrap {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  color: #999999;
 }
-.nav-item {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20rpx;
-}
-.nav-icon {
-  width: 74rpx;
-  height: 74rpx;
-  margin-bottom: 6rpx;
+.product-wrap {
+  padding: 0 30rpx;
 }

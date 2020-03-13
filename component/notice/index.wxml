@@ -1,0 +1,12 @@
+<!--component/notice/index.wxml-->
+<view class="swiper-content">
+  <image class="notice-icon" src="{{icon}}"></image>
+  <swiper
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="notice-item">
+    <block wx:for="{{noticeList}}" wx:key="index">
+      <swiper-item>
+        <view class="notice-text">{{item.title}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

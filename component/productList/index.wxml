@@ -1,0 +1,8 @@
+<!--component/productList/index.wxml-->
+<view class="product-content">
+  <view class="tab">
+    <block wx:for="{{productList}}" wx:key="index">
+      <view class="tab-item">{{item.menuName}}</view>
+    </block>
+  </view>
+</view>
