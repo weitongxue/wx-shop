@@ -1,8 +1,57 @@
 /* component/productList/index.wxss */
 .tab {
   height: 90rpx;
+  line-height: 90rpx;
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+.tab-wrap {
   display: flex;
 }
-.tab-item {
+.tab-content {
   flex: 1;
+  padding: 0 30rpx;
+  /* min-width: 25%; */
+}
+.tab-item {
+  text-align: center;
+  font-size: 28rpx;
+}
+.active {
+  border-bottom: 2px solid #C00808;
+  color: #C00808;
+}
+/* 商品列表 */
+.product-list{
+  margin-top: 20rpx;
+}
+.product-content {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 16rpx;
+  grid-row-gap: 20rpx;
+}
+.product-item {
+  width: 336rpx;
+  font-size: 28rpx;
+}
+.img-wrap {
+  background: #F5F5F5;
+  height: 337.4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+}
+.product-img {
+  width: 288rpx;
+  height: 289.2rpx;
+}
+.product-title {
+  color: #333333;
+  padding: 20rpx 0rpx;
+}
+.product-price {
+  color: #C00808;
 }

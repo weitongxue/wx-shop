@@ -1,7 +1,7 @@
 /* component/nav/index.wxss */
 .nav {
   display: grid;
-  grid-template-columns: 20% auto auto 20%;
+  grid-template-columns: 25% 25% 25% 25%;
   border-bottom: 1px solid #ECECEC;
 }
 .nav-item {

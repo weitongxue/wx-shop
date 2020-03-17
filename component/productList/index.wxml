@@ -1,8 +1,35 @@
 <!--component/productList/index.wxml-->
-<view class="product-content">
+<view class="product">
+  <!-- tab -->
   <view class="tab">
-    <block wx:for="{{productList}}" wx:key="index">
-      <view class="tab-item">{{item.menuName}}</view>
-    </block>
+    <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+      <view class="tab-wrap">
+        <block wx:for="{{infoList}}" wx:key="index">
+          <view class="tab-content">
+            <view bindtap="handleCheck" data-id="{{item.groupId}}" data-index="{{index}}" class="tab-item {{activeIndex === index ? 'active' : ''}}">{{item.menuName}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 列表 -->
+  <view class="product-list">
+     <swiper class="product-swiper" style="height:{{255 * productList.length}}rpx;">
+        <block wx:for="{{infoList.length}}" wx:for-item="info" wx:for-index="key" wx:key="key">
+          <swiper-item class="swiper-item">
+            <view class="product-content">
+              <block  wx:for="{{productList}}" wx:key="index">
+                <view class="product-item">
+                  <view class="img-wrap">
+                    <image class="product-img" src="{{item.productImg}}"></image>
+                  </view>
+                  <view class="product-title">{{item.productDesc}}</view>
+                  <view class="product-price">￥{{item.minShelfPrice}}</view>
+                </view>
+              </block>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
   </view>
 </view>
