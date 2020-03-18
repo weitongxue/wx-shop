@@ -16,24 +16,7 @@
     "url": "https://github.com/weitongxue/wx-shop/issues"
   },
   "homepage": "https://github.com/weitongxue/wx-shop#readme",
-  "standard": {
-    "globals": [
-      "Page"
-    ],
-    "ignore": [
-      "node_modules/**",
-      "pages/**"
-    ],
-    "plugins": [
-      "html"
-    ],
-    "parser": "babel-eslint",
-    "envs": [
-      "jest"
-    ]
-  },
   "devDependencies": {
     "crypto-js": "^3.1.9-1"
-  },
-  "dependencies": {}
+  }
 }

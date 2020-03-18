@@ -14,11 +14,11 @@
   </view>
   <!-- 列表 -->
   <view class="product-list">
-     <swiper class="product-swiper" style="height:{{255 * productList.length}}rpx;">
+     <swiper bindchange="changePage" class="product-swiper" style="height:{{255 * productList.length}}rpx;" current="{{currentPage}}">
         <block wx:for="{{infoList.length}}" wx:for-item="info" wx:for-index="key" wx:key="key">
-          <swiper-item class="swiper-item">
+          <swiper-item class="swiper-item" item-id="{{info}}">
             <view class="product-content">
-              <block  wx:for="{{productList}}" wx:key="index">
+              <block wx:for="{{productList}}" wx:key="index">
                 <view class="product-item">
                   <view class="img-wrap">
                     <image class="product-img" src="{{item.productImg}}"></image>

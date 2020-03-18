@@ -1,22 +1,18 @@
 //app.js
-import Util from './utils/util.js'
+import AJAX from './utils/ajax.js'
 App({
   onLaunch: function () {
     this.getPageinfo()
+    wx.$AJAX = AJAX
   },
   // 获取首页数据
   getPageinfo () {
     const that = this
-    wx.request({
-      url: Util.base + '/api/content/index',
-      data: Util.data,
-      method: 'post',
-      success(res) {
-        if (res.statusCode === 200) {
+    AJAX('/api/content/index', 'post').then(res => {
+      if (res.statusCode === 200) {
           that.globalData.pageInfo = res.data.data.list
           console.log(res.data.data.list)
         }
-      }
     })
   },
   globalData: { 

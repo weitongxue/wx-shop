@@ -1,6 +1,6 @@
 // index.js
 // 获取应用实例
-import Util from '../../utils/util.js'
+import URL from './url.js'
 const app = getApp()
 Page({
   data: {
@@ -46,27 +46,18 @@ Page({
     }
     const that = this
     const data = {
-      "page": {
-        "pageSize": "20",
-        "currentPage": "1"
-      },
-      "data": {
-        "groupId": groupId,
-        "viewCount": "50"
-      },
+      "groupId": groupId,
+      "viewCount": "50"
     }
-    
-    const dataInfo = Object.assign(Util.requestData, data)
-    wx.request({
-      url: Util.base + '/api/product/groupProduct/pageList',
-      data: dataInfo,
-      method: 'post',
-      success(res) {
-        console.log(res)
-        if (res.statusCode === 200) {
-          that.setData({ productList: res.data.data.list })
-          console.log(res.data.data.list)
-        }
+    const page = {
+      "pageSize": "20",
+      "currentPage": "1"
+    }
+    const url = URL.getGroupProduct
+    wx.$AJAX(url, 'post', data, page).then(res => {
+      if (res.statusCode === 200) {
+        that.setData({ productList: res.data.data.list })
+        console.log(res.data.data.list)
       }
     })
   }
