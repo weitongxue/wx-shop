@@ -16,6 +16,10 @@ App({
     })
   },
   globalData: { 
-    pageInfo: null
+    pageInfo: null,
+    page: {
+      "pageSize": "20",
+      "currentPage": "1"
+    }
   }
 })

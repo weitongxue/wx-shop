@@ -45,7 +45,6 @@ const commonParams = {
 }
 const AJAX = (url, method, data, page = {}) => {
   let strParams = paramsSerialize(url, commonParams, data, page)
-  console.log(strParams)
   let mac = CryptoJS.HmacSHA256(strParams, appSecret)
   let sign = CryptoJS.enc.Base64.stringify(mac)
   sign = encodeURIComponent(sign)

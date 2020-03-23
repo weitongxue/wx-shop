@@ -14,22 +14,22 @@
   </view>
   <!-- 列表 -->
   <view class="product-list">
-     <swiper bindchange="changePage" class="product-swiper" style="height:{{255 * productList.length}}rpx;" current="{{currentPage}}">
-        <block wx:for="{{infoList.length}}" wx:for-item="info" wx:for-index="key" wx:key="key">
-          <swiper-item class="swiper-item" item-id="{{info}}">
-            <view class="product-content">
-              <block wx:for="{{productList}}" wx:key="index">
-                <view class="product-item">
-                  <view class="img-wrap">
-                    <image class="product-img" src="{{item.productImg}}"></image>
-                  </view>
-                  <view class="product-title">{{item.productDesc}}</view>
-                  <view class="product-price">￥{{item.minShelfPrice}}</view>
+    <swiper bindchange="changePage" class="product-swiper" current="{{currentPage}}" style="height:{{255 * productList[currentPage].data.length}}rpx;">
+      <block wx:for="{{productList}}" wx:key="index">
+        <swiper-item class="swiper-item" item-id="{{infoList[index].groupId}}">
+          <view class="product-content">
+            <block wx:for="{{item.data}}" wx:for-item="info" wx:key="index">
+              <view class="product-item">
+                <view class="img-wrap">
+                  <image class="product-img" src="{{info.productImg}}"></image>
                 </view>
-              </block>
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
+                <view class="product-title">{{info.productDesc}}</view>
+                <view class="product-price">￥{{info.minShelfPrice}}</view>
+              </view>
+            </block>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>

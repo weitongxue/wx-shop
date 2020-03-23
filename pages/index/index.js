@@ -30,7 +30,11 @@ Page({
         this.setData({ noticeList: item.list, noticeIcon: item.image })
       },
       "product": () => {
-        this.setData({ infoList: item.list })
+        const LIST = new Array
+        item.list.map(() => {
+          LIST.push({})
+        })
+        this.setData({ infoList: item.list, productList: LIST })
         this.getProduct(item.list[0].groupId)
       }
     }
@@ -49,16 +53,30 @@ Page({
       "groupId": groupId,
       "viewCount": "50"
     }
-    const page = {
-      "pageSize": "20",
-      "currentPage": "1"
-    }
     const url = URL.getGroupProduct
+    const page = app.globalData.page
     wx.$AJAX(url, 'post', data, page).then(res => {
       if (res.statusCode === 200) {
-        that.setData({ productList: res.data.data.list })
-        console.log(res.data.data.list)
+        let list = this.newList(groupId, res.data.data.list)
+        that.setData({ productList: list })
       }
     })
+  },
+  // 数据结构改造 (key: 分类id, data：分类的数据)
+  newList(key, data) {
+    const { infoList, productList } = this.data
+    let obj = Object.assign({}, { key, data })
+    let newArr = new Array()
+    if (Object.keys(productList[0]).length === 0) {
+      productList[0] = obj
+    } else {
+      infoList.map((item, index) => {
+        if (item.groupId === key) {
+          productList[index] = obj
+        }
+      })
+    }
+    console.log(productList)
+    return productList
   }
 })

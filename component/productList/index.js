@@ -37,10 +37,17 @@ Component({
     },
     // 左右切换
     changePage (e) {
-      const { currentItemId } = e.detail
-      const id = this.properties.infoList[currentItemId].groupId
-      this.setData({ activeIndex: Number(currentItemId) })
-      this.triggerEvent("handleProduct", { id })
-    }
+      const { currentItemId, source } = e.detail
+      const { infoList } = this.properties
+      const id = currentItemId
+      if (source === "touch") {
+        infoList.map((item, index) => {
+          if (item.groupId === id) {
+            this.setData({ activeIndex: index })
+          }
+        })
+        this.triggerEvent("handleProduct", { id })
+      }
+    },
   }
 })
