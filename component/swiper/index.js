@@ -18,7 +18,7 @@ Component({
    */
   data: {
     indicatorDots: true,
-    autoplay: false, // 是否自动切换
+    autoplay: true, // 是否自动切换
     interval: 2000, // 自动切换时间间隔
     duration: 500 // 滑动动画时长
   }

@@ -1,8 +1,10 @@
 {
   "usingComponents": {
+    "mHomePage": "../../component/home",
     "mSwiper": "../../component/swiper",
     "mNav": "../../component/nav",
     "mNotice": "../../component/notice",
     "mProduct": "../../component/productList"
-  }
+  },
+  "navigationBarTitleText": "首页"
 }

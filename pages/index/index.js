@@ -1,25 +1,44 @@
 // index.js
 // 获取应用实例
 import URL from './url.js'
+import Util from '../../utils/util.js'
 const app = getApp()
 Page({
   data: {
+    logoImg: '',
+    backColor: '',
+    pageKey: [],
     imageList: [],
     navList: [],
     noticeList: [],
     noticeIcon: '',
     infoList: [],
-    productList: []
+    productList: [],
+    currentGroupId: ''
   },
   onReady: function () {
     const pageInfo = app.globalData.pageInfo || []
+    const pageKeyList = []
     pageInfo.map(item => {
       this.getInfo(item)
+      pageKeyList.push(item.areaCode)
     })
+    this.setData({ pageKey: pageKeyList })
+  },
+  onReachBottom() {
+    const { groupId } = this.data
+    const That = this
+    let currentPage = app.globalData.page.currentPage
+    currentPage++
+    app.globalData.page.currentPage = currentPage
+    Util.handleShake(That.getProduct(groupId), 1000)
   },
   // 获取对应数据
   getInfo(item) {
     const info = {
+      'logo': () => {
+        this.setData({ logoImg: item.logoImg, backColor: item.backColor })
+      },
       'banner': () => {
         this.setData({ imageList: item.list })
       },
@@ -48,6 +67,7 @@ Page({
     } else {
       groupId = e.detail.id
     }
+    this.setData({ currentGroupId: groupId })
     const that = this
     const data = {
       "groupId": groupId,
@@ -55,10 +75,12 @@ Page({
     }
     const url = URL.getGroupProduct
     const page = app.globalData.page
+    const { productList }= this.data
     wx.$AJAX(url, 'post', data, page).then(res => {
       if (res.statusCode === 200) {
+        console.log(res.data.data.list)
         let list = this.newList(groupId, res.data.data.list)
-        that.setData({ productList: list })
+        that.setData({ productList: productList.concat(list) })
       }
     })
   },

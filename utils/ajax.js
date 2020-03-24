@@ -10,6 +10,7 @@ const generateDeviceId = () => {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4()
 }
 
+const CODE = [ -999 ]
 /**
  * 参数序列化
  * return string
@@ -56,7 +57,7 @@ const AJAX = (url, method, data, page = {}) => {
     page
   }
   return new Promise((resolve, reject) => {
-    wx.request({
+    const requestTask = wx.request({
       url: base + url,
       data: postParasm,
       method: method || 'post',
@@ -65,6 +66,15 @@ const AJAX = (url, method, data, page = {}) => {
       },
       fail(res) {
         reject(res)
+      },
+      complete (res) {
+        if (CODE.includes(res.data.code)) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
       }
     })
   })

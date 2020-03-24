@@ -2,8 +2,8 @@
 import AJAX from './utils/ajax.js'
 App({
   onLaunch: function () {
-    this.getPageinfo()
     wx.$AJAX = AJAX
+    this.getPageinfo()
   },
   // 获取首页数据
   getPageinfo () {
@@ -14,6 +14,9 @@ App({
           console.log(res.data.data.list)
         }
     })
+  },
+  onError (e) {
+    console.log(e)
   },
   globalData: { 
     pageInfo: null,

@@ -1,0 +1,6 @@
+<!--component/home/index.wxml-->
+<view class="home-wrap">
+  <block wx:for="{{pageKey}}" wx:key="index">
+    <slot name="{{item}}"></slot>
+  </block>
+</view>
