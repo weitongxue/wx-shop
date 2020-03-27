@@ -1,4 +1,5 @@
 // component/productList/index.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -31,12 +32,17 @@ Component({
   methods: {
     // 点击导航
     handleCheck (e) {
+      app.globalData.page.currentPage = 1
       const { id, index } = e.target.dataset
       this.setData({ activeIndex: index, currentPage: index })
       this.triggerEvent("handleProduct", { id })
     },
     // 左右切换
     changePage (e) {
+      wx.showLoading({
+        title: '数据加载中...',
+      })
+      app.globalData.page.currentPage = 1
       const { currentItemId, source } = e.detail
       const { infoList } = this.properties
       const id = currentItemId

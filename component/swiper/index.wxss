@@ -1,5 +1,5 @@
 /* component/swiper/weiper.wxss */
-.swiper-content, .swiper-item, image {
+.swiper-content, .swiper-item, .swiper-img{
   height: 100%;
   width: 100%;
 }

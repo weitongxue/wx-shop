@@ -8,4 +8,5 @@
 }
 .notice-icon {
   width: 60rpx;
+  height: 100%;
 }

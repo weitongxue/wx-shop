@@ -11,7 +11,6 @@ App({
     AJAX('/api/content/index', 'post').then(res => {
       if (res.statusCode === 200) {
           that.globalData.pageInfo = res.data.data.list
-          console.log(res.data.data.list)
         }
     })
   },

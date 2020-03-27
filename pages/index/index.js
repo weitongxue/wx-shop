@@ -14,7 +14,8 @@ Page({
     noticeIcon: '',
     infoList: [],
     productList: [],
-    currentGroupId: ''
+    currentGroupId: '',
+    isNoMore: false
   },
   onReady: function () {
     const pageInfo = app.globalData.pageInfo || []
@@ -25,6 +26,9 @@ Page({
     })
     this.setData({ pageKey: pageKeyList })
   },
+  // onTabItemTap: function (e) {
+  //   console.log(e)
+  // },
   onReachBottom() {
     const { groupId } = this.data
     const That = this
@@ -78,9 +82,13 @@ Page({
     const { productList }= this.data
     wx.$AJAX(url, 'post', data, page).then(res => {
       if (res.statusCode === 200) {
-        console.log(res.data.data.list)
-        let list = this.newList(groupId, res.data.data.list)
-        that.setData({ productList: productList.concat(list) })
+        wx.hideLoading()
+        if (!res.data.data.list.length) {
+          this.setData({ isNoMore: true })
+        } else {
+          let list = this.newList(groupId, res.data.data.list)
+          that.setData({ productList: productList.concat(list) })
+        }
       }
     })
   },

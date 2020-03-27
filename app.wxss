@@ -14,3 +14,28 @@ page{
   border-radius: 70rpx;
   padding-left: 80rpx;
 }
+.fadeDownIn {
+  opacity: 0;
+  transform: translate3d(0, 50%, 2px);
+  animation: fadeIn .5s forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50%, 2px);
+  }
+  100% {
+    opacity: 1;
+    transform:  translate3d(0, 0, 0);
+  } 
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px)
+  }
+  100% {
+    opacity: 1;
+    transform:  translateY(0px);
+  } 
+}
