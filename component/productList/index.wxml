@@ -14,20 +14,21 @@
   </view>
   <!-- 列表 -->
   <view class="product-list">
-    <swiper bindchange="changePage" class="product-swiper" current="{{currentPage}}" style="height:{{255 * productList[currentPage].data.length}}rpx;">
+    <swiper bindchange="changePage" class="product-swiper" current="{{currentPage}}" style="height:{{242 * productList[activeIndex].data.length}}rpx;">
       <block wx:for="{{productList}}" wx:key="index">
         <swiper-item class="swiper-item" item-id="{{infoList[index].groupId}}">
           <view class="product-content">
             <block wx:for="{{item.data}}" wx:for-item="info" wx:key="index">
               <view class="product-item">
                 <view class="img-wrap">
-                  <image class="product-img" src="{{info.productImg}}"></image>
+                  <image lazy-load class="product-img" src="{{info.productImg}}"></image>
                 </view>
                 <view class="product-title">{{info.productDesc}}</view>
                 <view class="product-price">￥{{info.minShelfPrice}}</view>
               </view>
             </block>
           </view>
+          <view wx:if="{{isNoMore}}" class="noMore">-- 暂无更多数据 --</view>
         </swiper-item>
       </block>
     </swiper>

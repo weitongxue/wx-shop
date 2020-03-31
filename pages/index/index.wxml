@@ -19,8 +19,7 @@
     </view>
     <!-- 商品列表 -->
     <view slot="product" class="product-wrap">
-      <mProduct infoList="{{infoList}}" productList="{{productList}}" bindhandleProduct="getProduct" />
-      <view wx:if="{{isNoMore}}" class="noMore">-- 暂无更多数据 --</view>
+      <mProduct infoList="{{infoList}}" productList="{{productList}}" isNoMore="{{isNoMore}}" bindhandleProduct="getProduct" />
     </view>
   </mHomePage>
 </view>

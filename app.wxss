@@ -6,7 +6,6 @@ page{
 }
 .container {
   font-size: 24rpx;
-  height: 100%;
 }
 .search {
   background: #ffffff;

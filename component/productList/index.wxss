@@ -44,14 +44,19 @@
   justify-content: center;
   border-radius: 10rpx;
 }
-.product-img {
-  width: 288rpx;
-  height: 289.2rpx;
-}
 .product-title {
   color: #333333;
   padding: 20rpx 0rpx;
 }
 .product-price {
   color: #C00808;
+}
+.product-img {
+  width: 288rpx;
+  height: 289.2rpx;
+}
+.noMore {
+  margin-top: 30rpx;
+  text-align: center;
+  color: #cccccc;
 }

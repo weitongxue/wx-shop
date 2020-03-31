@@ -16,8 +16,11 @@ Component({
       type: Array,
       value: []
     },
+    isNoMore: {
+      type: Boolean,
+      value: false
+    }
   },
-
   /**
    * 组件的初始数据
    */
@@ -25,13 +28,13 @@ Component({
     activeIndex: 0,
     currentPage: 0
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
     // 点击导航
     handleCheck (e) {
+      this.properties.isNoMore = false
       app.globalData.page.currentPage = 1
       const { id, index } = e.target.dataset
       this.setData({ activeIndex: index, currentPage: index })
@@ -39,9 +42,6 @@ Component({
     },
     // 左右切换
     changePage (e) {
-      wx.showLoading({
-        title: '数据加载中...',
-      })
       app.globalData.page.currentPage = 1
       const { currentItemId, source } = e.detail
       const { infoList } = this.properties
@@ -52,6 +52,7 @@ Component({
             this.setData({ activeIndex: index })
           }
         })
+        this.properties.isNoMore = false
         this.triggerEvent("handleProduct", { id })
       }
     },

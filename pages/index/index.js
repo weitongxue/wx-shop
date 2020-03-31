@@ -15,7 +15,8 @@ Page({
     infoList: [],
     productList: [],
     currentGroupId: '',
-    isNoMore: false
+    isNoMore: false,
+    pages: ''
   },
   onReady: function () {
     const pageInfo = app.globalData.pageInfo || []
@@ -30,12 +31,16 @@ Page({
   //   console.log(e)
   // },
   onReachBottom() {
-    const { groupId } = this.data
+    const { currentGroupId, pages, isNoMore } = this.data
     const That = this
     let currentPage = app.globalData.page.currentPage
     currentPage++
     app.globalData.page.currentPage = currentPage
-    Util.handleShake(That.getProduct(groupId), 1000)
+    if (currentPage <= pages) {
+      Util.handleShake(That.getProduct(currentGroupId, 'scroll'), 1000)
+    } else {
+      this.setData({ isNoMore: true })
+    }
   },
   // 获取对应数据
   getInfo(item) {
@@ -58,13 +63,16 @@ Page({
           LIST.push({})
         })
         this.setData({ infoList: item.list, productList: LIST })
-        this.getProduct(item.list[0].groupId)
+        this.getProduct(item.list[0].groupId, 'click')
       }
     }
     info[item.areaCode] ? info[item.areaCode]() : false
   },
   // 获取商品数据
-  getProduct (e) {
+  getProduct (e, type) {
+    wx.showLoading({
+      title: '数据加载中...',
+    })
     let groupId
     if (typeof(e) !== 'object') {
       groupId = e
@@ -86,27 +94,33 @@ Page({
         if (!res.data.data.list.length) {
           this.setData({ isNoMore: true })
         } else {
-          let list = this.newList(groupId, res.data.data.list)
-          that.setData({ productList: productList.concat(list) })
+          let list = this.newList(groupId, res.data.data.list, type)
+          that.setData({ productList: list, pages: res.data.data.pages })
+          console.log(list)
         }
       }
     })
   },
   // 数据结构改造 (key: 分类id, data：分类的数据)
-  newList(key, data) {
+  newList(key, data, type) {
     const { infoList, productList } = this.data
     let obj = Object.assign({}, { key, data })
     let newArr = new Array()
-    if (Object.keys(productList[0]).length === 0) {
-      productList[0] = obj
+    if (type === 'scroll') {
+      // 滚动加载数据
+      productList.map(item => {
+        if (item.key === key) {
+          item.data.push(...data)
+        }
+      })
     } else {
+      // 点击跳转
       infoList.map((item, index) => {
         if (item.groupId === key) {
           productList[index] = obj
         }
       })
     }
-    console.log(productList)
     return productList
   }
 })
