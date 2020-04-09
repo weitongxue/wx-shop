@@ -22,4 +22,5 @@
       <mProduct infoList="{{infoList}}" productList="{{productList}}" isNoMore="{{isNoMore}}" bindhandleProduct="getProduct" />
     </view>
   </mHomePage>
+  <img class="good_box" src="{{box_img}}" hidden="{{hide_box}}"  style="left: {{box_x}}px; top: {{box_y}}px;"></img>
 </view>

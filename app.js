@@ -1,7 +1,7 @@
 //app.js
 import AJAX from './utils/ajax.js'
 App({
-  onLaunch: function () {
+  onLaunch: function (e) {
     wx.$AJAX = AJAX
     this.getPageinfo()
     wx.login({

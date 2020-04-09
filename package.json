@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/weitongxue/wx-shop#readme",
   "devDependencies": {
-    "crypto-js": "^3.1.9-1"
+    "crypto-js": "^3.1.9-1",
+    "wxa-plugin-canvas": "^1.1.12"
   }
 }

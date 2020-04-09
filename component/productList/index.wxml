@@ -19,7 +19,7 @@
         <swiper-item class="swiper-item" item-id="{{infoList[index].groupId}}">
           <view class="product-content">
             <block wx:for="{{item.data}}" wx:for-item="info" wx:key="index">
-              <view class="product-item">
+              <view class="product-item" bindtap="checkProduct">
                 <view class="img-wrap">
                   <image lazy-load class="product-img" src="{{info.productImg}}"></image>
                 </view>

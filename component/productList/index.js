@@ -56,5 +56,15 @@ Component({
         this.triggerEvent("handleProduct", { id })
       }
     },
+    // 添加购物车
+    checkProduct (e) {
+      wx.getSystemInfo({
+        success (res) {
+          console.log(res.windowHeight)
+          console.log(res.windowWidth)
+        }
+      })
+      console.log(e.detail)
+    }
   }
 })

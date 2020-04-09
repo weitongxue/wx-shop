@@ -1,4 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
   <button open-type="getUserInfo" bindgetuserinfo="handleUserInfo">获取用户信息</button>
+  <poster config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button>点击生成海报</button>
+  </poster>
 </view>

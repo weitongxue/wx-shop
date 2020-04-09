@@ -2,6 +2,7 @@
 // 获取应用实例
 import URL from './url.js'
 import Util from '../../utils/util.js'
+import { Animat } from '../../utils/animat.js'
 const app = getApp()
 Page({
   data: {
@@ -19,6 +20,12 @@ Page({
     pages: ''
   },
   onReady: function () {
+    // new Animat('caiwei', 18).say()
+    // tab右上方添加数字
+    wx.setTabBarBadge({
+      index: 2,
+      text: '2'
+    })
     const pageInfo = app.globalData.pageInfo || []
     const pageKeyList = []
     pageInfo.map(item => {
@@ -30,6 +37,7 @@ Page({
   onShareAppMessage() {
     return {
       title: "我的小程序", // 默认是小程序的名称(可以写slogan等)
+      path: 'pages/classify/classify',
       imageUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
       success (res) {
         cosnole.log(res)

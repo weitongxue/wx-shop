@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "分类",
-  "usingComponents": {}
+  "usingComponents": {
+    "poster": "wxa-plugin-canvas/poster"
+  }
 }
