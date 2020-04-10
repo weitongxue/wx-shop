@@ -26,7 +26,8 @@ Component({
    */
   data: {
     activeIndex: 0,
-    currentPage: 0
+    currentPage: 0,
+    animateAcive: false
   },
   /**
    * 组件的方法列表
@@ -64,7 +65,7 @@ Component({
           console.log(res.windowWidth)
         }
       })
-      console.log(e.detail)
+      console.log(e.currentTarget.dataset.img)
     }
   }
 })

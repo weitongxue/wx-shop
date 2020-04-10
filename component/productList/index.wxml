@@ -12,6 +12,7 @@
       </view>
     </scroll-view>
   </view>
+  <view class="box"></view>
   <!-- 列表 -->
   <view class="product-list">
     <swiper bindchange="changePage" class="product-swiper" current="{{currentPage}}" style="height:{{242 * productList[activeIndex].data.length}}rpx;">
@@ -19,7 +20,7 @@
         <swiper-item class="swiper-item" item-id="{{infoList[index].groupId}}">
           <view class="product-content">
             <block wx:for="{{item.data}}" wx:for-item="info" wx:key="index">
-              <view class="product-item" bindtap="checkProduct">
+              <view class="product-item" bindtap="checkProduct" data-img="{{info.productImg}}">
                 <view class="img-wrap">
                   <image lazy-load class="product-img" src="{{info.productImg}}"></image>
                 </view>

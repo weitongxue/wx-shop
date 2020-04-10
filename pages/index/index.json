@@ -6,5 +6,6 @@
     "mNotice": "../../component/notice",
     "mProduct": "../../component/productList"
   },
-  "navigationBarTitleText": "首页"
+  "navigationBarTitleText": "首页",
+  "navigationStyle": "custom"
 }

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container fadeDownIn">
   <mHomePage pageKey="{{pageKey}}">
-    <view slot="logo" class="header" style="background-color: rgba({{backColor}})">
+    <view slot="logo" class="header" style="background-color: rgba({{backColor}}); height:{{navH}}px">
       <image class="logo" src="{{logoImg}}"></image>
       <input class="search" placeholder="请输入商品名称" style="background: white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAiCAYAAAA3WXuFAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAJKADAAQAAAABAAAAIgAAAAClThZcAAAEsUlEQVRYCcWXXWgcVRTHs7PJNhCsWWkVfRCqRhAxKbSUIghdEEFiqYIEi2lCPpqUSFsKGsUXK37UvlqxzS5ZNYQ+BGqL2iD9YCEPWqpPYglN9EGSJv0kSe1uF7sk/v7TmTK7O3OTTbZ64My999xz/vc/537MnVDFEmRoaCgyOzsbW1hY2Ib7c+hj6KNoNhQKTWG/RH2E+omurq4L1JctIVPk4ODg6kwm8x4DvoXfapOv2wepUer7ITbk2kopAwn19fV1AnQAXeMAZihPoWfRSXTasqwIpbL1JKQb0c3ULbQCYufRnchvai9VighBpAqgQ4B3C4T6FeofRqPRr5uamm6bgInVNPYS00NMhDJNewfZOm6K8/blERIZOn9AX3KcDkOkFyK3vEGL1ROJxDoIHUU3Q2oB/x5IHVksTv15hOLx+BFAlJkcQLuXCuI30PDw8KrJyckEeDscvJfBO+Pn67XdI+SsmYTT2dPd3X3Y67icOmRCZOsY5WvEz1RVVTW0t7dPmLDsBajdhJMWsCReDjIC0nRVV1crQ7+j0Vwu97HsJrEJpdPpd3HSbrpeU1Pzjimg1L6WlpZ0OBzWsVFBppr7+/sbTBiWDj0c7ADKj5qbm2+aApbT19nZOULcSdQiS3tNGNbMzMwWHB4kvf9UVlZ+ZXJeYZ+7JreShHAQlgURfQ4kZzs6Ov6+Wy3/MxKJ6EDV8bFmbm7u+aARLOa1Xp0QSwU5lcPe1taWBecnB8se0w9Xi1pHvxaccTv6BZdq46X1yZHoRPcVEXI7p309ymiEkD3G/Py8nQQ/aBFSKiXVd4v792QWVgkdYrmgUURIdxk5BbIOCi7VDiF3edwIihUhe15J41NBTuWy89LuGH8GYWrbjzidjUFO5bAPDAw8TIY2CotvmrvbiqBF6IRjbdC1ocijTIZsNqvzTjMywREwGgRrcaMbhZR9D2ba3g9yXIk9lUpVEv+2g5FkPN2RfEWMJR/ogWMbWXpG9XLK2NjYTqbraTAzfJ7iJmybEBenY5A5R1AYPcp815iCSunj0vcs2AcVQ3mAz9OUKd7NkE7qLhxvUa5nvr8xfQBNgN6+ZDK5Frzv0Adkp9TUGeXejVFe3Bpf5S2+JVD2H9E3uKzNqa9UUWZEhrgnvLHgJ7HvAveO1+7W8wjJCNAuii8I0hXhIr86u1n4p9W3FNECHh8fV7Y/A8POTGEcpM7Q97rfyxYRUjCkXiRAP3pRtQE4TftLqqcA0f9ZkbAZHsG4jZ2q3VQnB+J+ofiD2O1qe4W+C7xsI5e3v/Ls3oa3zvQ9TvsTAt8E0CV+m/bPtHUzmKYeodTnQD+KGyjdNZmh72BdXd2nsVgsB9Z++uydTOmVy+y6rSz0X12jO5DbLirJ1nqM+9BXGPShIod8g4gmudgfam1tzftekcEW4vVbpJfwishvZ6drveX/l3m9Cuvaddz0XmBK6gFQVnRtucMAV2hPcJFP8aYXC+O8bTIVw1ebptZrpz6P7mM5fL5ohgoCV9zUwQuhk+i6QjDWVO9/Tkgk9KHlrPseUpsKSN1wF2GB/f42+Ve7Wltbu4XpO14w0rX/JUMuCTJkMYXafXuoT1G2/wupxtPazcw7AwAAAABJRU5ErkJggg==') 30rpx 18rpx no-repeat; background-size: 40rpx;"></input>
     </view>
@@ -22,5 +22,4 @@
       <mProduct infoList="{{infoList}}" productList="{{productList}}" isNoMore="{{isNoMore}}" bindhandleProduct="getProduct" />
     </view>
   </mHomePage>
-  <img class="good_box" src="{{box_img}}" hidden="{{hide_box}}"  style="left: {{box_x}}px; top: {{box_y}}px;"></img>
 </view>

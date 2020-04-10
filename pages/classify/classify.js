@@ -83,7 +83,7 @@ Page({
       ],
       images: [
         {
-          url: 'http://weixin.usdotnet.com/imgage/bgk_wanjiale.jpg',
+          url: 'http://test-ysl.zhongyiyoumei.cn/2020/02/24/0202d6c5-a1d2-4859-aaa3-eab5bc6002bb.png',
           width: 300,
           height: 300,
           y: 450,
@@ -93,7 +93,7 @@ Page({
           // borderColor: 'red',
         },
         {
-          url: 'http://weixin.usdotnet.com/imgage/bgk_wanjiale.jpg',
+          url: 'http://test-ysl.zhongyiyoumei.cn/2020/02/24/0202d6c5-a1d2-4859-aaa3-eab5bc6002bb.png',
           width: 100,
           height: 100,
           y: 450,
@@ -115,6 +115,12 @@ Page({
     }
   },
   handleUserInfo (e) {
+    console.log(e)
+  },
+  onPosterSuccess (e) {
+    console.log(e)
+  },
+  onPosterFail (e) {
     console.log(e)
   },
   onLoad: function () {

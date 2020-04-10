@@ -2,10 +2,10 @@
 // 获取应用实例
 import URL from './url.js'
 import Util from '../../utils/util.js'
-import { Animat } from '../../utils/animat.js'
 const app = getApp()
 Page({
   data: {
+    navH: '',
     logoImg: '',
     backColor: '',
     pageKey: [],
@@ -20,7 +20,10 @@ Page({
     pages: ''
   },
   onReady: function () {
-    // new Animat('caiwei', 18).say()
+    wx.showLoading({
+      title: '模块加载中',
+    })
+    this.setData({ navH: app.globalData.navHeight })
     // tab右上方添加数字
     wx.setTabBarBadge({
       index: 2,
@@ -33,6 +36,9 @@ Page({
       pageKeyList.push(item.areaCode)
     })
     this.setData({ pageKey: pageKeyList })
+  },
+  onShow () {
+    wx.hideLoading()
   },
   onShareAppMessage() {
     return {

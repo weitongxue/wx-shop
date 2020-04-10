@@ -2,6 +2,15 @@
 import AJAX from './utils/ajax.js'
 App({
   onLaunch: function (e) {
+    wx.getSystemInfo({
+      success: res => {
+        //导航高度
+        this.globalData.navHeight = res.statusBarHeight + 46;
+        console.log(this.globalData.navHeight)
+      }, fail(err) {
+        console.log(err)
+      }
+    }),
     wx.$AJAX = AJAX
     this.getPageinfo()
     wx.login({
@@ -29,6 +38,7 @@ App({
   globalData: { 
     // secret: b39bdfcc66cf3e7f8194aa388de6fa0a,
     pageInfo: null,
+    navHeight: 0,
     isLogin: false,
     page: {
       "pageSize": "20",
