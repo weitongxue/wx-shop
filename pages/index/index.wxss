@@ -9,8 +9,8 @@
   height: 70rpx;
 }
 .search {
+  flex: 1;
   margin-left: 20rpx;
-  width: 45%;
 }
 .swiper-wrap {
   box-sizing: border-box;
